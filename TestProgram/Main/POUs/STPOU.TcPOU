@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="STPOU" Id="{efb8ad37-cf68-421c-8534-f1f910a9749d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM STPOU
+VAR
+	// Start Button
+	btnStart: BOOL;
+	// Stop Button
+	btnStop: BOOL;
+	// Motor Starter Coil
+	Coil: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Coil := NOT btnStop AND (btnStart OR Coil);]]></ST>
+    </Implementation>
+    <LineIds Name="STPOU">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
